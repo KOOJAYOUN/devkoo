@@ -50,9 +50,6 @@ jobs:
         
       - name: docker ps
         run: docker ps
-        
-      - name: Release number
-        run: echo GITHUB_RUN_ATTEMPT
 
       - name: docker build
         run: |
