@@ -61,7 +61,7 @@ jobs:
         uses: docker/login-action@v1
         with:
         username: ${{ secrets.DOCKERHUB_USERNAME }} #액션>세팅>시크릿
-        password: ${{ secrets.DOCKERHUB_TOKEN }} #도커허브가서>세팅>시크릿
+        password: ${{ secrets.DOCKERHUB_TOKEN }} #도커허브가서>세팅>토큰을 시크릿에 력
 
       - name: docker push
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/m-dev:tomcat_latest
