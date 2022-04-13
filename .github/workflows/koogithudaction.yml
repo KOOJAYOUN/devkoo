@@ -3,7 +3,7 @@
 name: test1
 
 env: 
-  RN: env.GITHUB_RUN_NUMBER
+  RN: GITHUB_RUN_NUMBER
 
 # Controls when the workflow will run
 on:
@@ -53,9 +53,6 @@ jobs:
         
       - name: docker ps
         run: docker ps
-        
-      - name: env number
-        run: RN=${{ env.GITHUB_RUN_NUMBER }}
         
       - name: Release number
         run: echo "$RN"
