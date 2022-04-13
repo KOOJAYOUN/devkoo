@@ -52,7 +52,7 @@ jobs:
         run: docker ps
         
       - name: Release number
-        run: echo = %GITHUB_RUN_NUMBER
+        run: echo = GITHUB_RUN_NUMBER
 
       - name: docker build
         run: |
