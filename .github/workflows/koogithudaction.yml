@@ -54,6 +54,7 @@ jobs:
       - name: Release number
         env:
           RELEASE_NUM: ${{ env.GITHUB_RUN_NUMBER }}
+        run: echo = %RELEASE_NUM
 
       - name: docker build
         run: |
