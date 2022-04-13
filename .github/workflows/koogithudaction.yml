@@ -54,13 +54,13 @@ jobs:
       - name: Release number
         env:
           RELEASE_NUM: ${{ env.GITHUB_RUN_NUMBER }}
-        run: echo = %RELEASE_NUM
+        run: echo = %{{ RELEASE_NUM }}
 
       - name: docker build
         run: |
           cp ./build/libs/*.war ./Dockerfile
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/m-dev:tomcat_latest ./Dockerfile
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/m-dev:tomcat_$RELEASE_NUM ./Dockerfile
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/m-dev:tomcat_${{ RELEASE_NUM }} ./Dockerfile
           docker images
      
       - name: Login to Docker Hub
@@ -72,7 +72,7 @@ jobs:
       - name: docker push
         run: |
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/m-dev:tomcat_latest
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/m-dev:tomcat_$RELEASE_NUM
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/m-dev:tomcat_${{ RELEASE_NUM }}
       
       - name: Get GKE Credentials
         uses: google-github-actions/get-gke-credentials@v0.7.0
