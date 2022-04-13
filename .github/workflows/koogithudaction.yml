@@ -3,7 +3,7 @@
 name: test1
 
 env: 
-  RN: GITHUB_RUN_NUMBER
+  RN: env.GITHUB_RUN_NUMBER
 
 # Controls when the workflow will run
 on:
