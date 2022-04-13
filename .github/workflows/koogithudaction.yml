@@ -53,7 +53,7 @@ jobs:
         
       - name: Release number
         run: |
-          RELEASE_NUM=$env:GITHUB_RUN_NUMBER
+          RELEASE_NUM=${{ env.GITHUB_RUN_NUMBER }}
 
 
       - name: docker build
